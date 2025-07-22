@@ -1,0 +1,88 @@
+﻿-~- INSTRUCTIVO -~-
+
+Si ya tenían una versión anterior solo modificar el archivo teclasRapidas.ahk al que pueden acceder haciendo click derecho sobre el icono de AutoHotKey en la barra de menú inicio (cerca de la hora) y luego en 'Edit Script'.
+Si no instalar AutoHotkey_2.0.19_setup.exe y ejecutar el archivo teclasRapidas.ahk.
+Crear y copiar un acceso directo del mismo en la carpeta de inicio de windows para que el script se ejecute automáticamente al abrir windows
+Pueden acceder a la carpeta de inicio de windows ingresando 'shell:startup' en la ventana de ejecutar o en el explorador de windows.
+Si la ruta de TeamViewer no es la correcta configurar la misma en la variable del script y recargar el mismo desde el icono de la barra de tareas.
+A tener en cuenta. Para la mejora de uso de algunos de los atajos, se utiliza el portapapeles para "copiar" y pegar algunos comandos.
+Por ende es posible que al utilizar ciertos comandos pierdan el Clipboard si se trataba de una imagen o archivo.
+Se utiliza un respaldo del mismo, pero solo sirve para textos.
+Se agregó un par de funciones interesantes incluida la lista de scripts presionando Ctrl + Shift + a.
+
+
+-~- DOCUMENTACION -~-
+
+# VARIABLES
+
+;(VAR) - TeamViewer - Ruta al ejecutable de TeamViewer
+;(VAR) - ImagenFirma - Path a la imagen a usar como firma (puede ser solo el nombre si esta en el mismo directorio) La imagen debe estar en el directorio del script en este caso
+
+# FUNCIONES
+
+;(FUNC) - SetImageToClipboard(path) - Función que coloca imagen en el portapapeles usado para la firma
+;(FUNC) - MsgYCopiarImagen(msg) - Función que limpia la respuesta por defecto y coloca el mensaje y el la imagen de firma seleccionada
+;(FUNC) - Buscar(texto, ruta, extension, incluirSub, guiRef) - Función que busca el texto indicado en la carpeta seleccionada teniendo en cuenta o no las subcarpetas
+;(FUNC) - Abrir(comando) - Función para Abrir un comando desde ejecutar
+;(FUNC) - Intercambio(clipInter) - Función para enviar con el clipboard un determinado texto para mejorar los tiempos de envío y evitar errores por la velocidad de uso. La misma resguarda el clipboard actual y luego de utilizarlo vuelve a colocar el original para su uso normal
+;(FUNC) - BorrarTodoMenosTik() - Función que limpia la respuesta por defecto dejando solo la linea que indica la URL al TIK
+;(FUNC) - Llamada() - Función que obtiene y formatea el horario para colocar en un archivo de texto un nuevo espacio para anotar datos sobre una Llamada recibida (Guardia)
+;(FUNC) - Plantilla(momento) - Función que formatea la respuesta a un incidente según un momento recibido (" día", "as tardes", "as noches", Etc)
+
+# ATAJOS
+
+;(ATAJO) - Alt + q - Abrir ID TV seleccionado con Pass1 como contraseña por defecto
+;(ATAJO) - Alt + w - Administracion de equipos
+;(ATAJO) - Alt + e - Resupuesta Según horario (Hasta las 13 'Buen día', Hasta las 20 'Buenas tardes', Desde las 20 'Buenas noches')
+;(ATAJO) - Alt + i - Abre un cmd con ipconfig /all
+;(ATAJO) - Alt + o - Instalar características de Windows
+;(ATAJO) - Alt + d - Administrador de dispositivos
+;(ATAJO) - Alt + r - Adaptadores de Red
+;(ATAJO) - Alt + s - Servicios de windows ('services.msc')
+;(ATAJO) - Alt + p - Dispositivos e Impresoras (incluye W11)
+;(ATAJO) - Alt + u - Cuentas de usuario de windows ('control userpasswords2')
+;(ATAJO) - Alt + a - Aplicaciones y características
+;(ATAJO) - Alt + b - Pass1
+;(ATAJO) - Alt + n - Pass2
+;(ATAJO) - Alt + 1 - 'SELECT * FROM '
+;(ATAJO) - Alt + 2 - UPDATE  set /**/, LastUpdated=GETDATE() WHERE id
+;(ATAJO) - Alt + 3 - DELETE  WHERE id
+;(ATAJO) - Alt + 5 - EXEC sp_fkeys
+;(ATAJO) - Alt + 6 - EXEC sp_HelpText
+;(ATAJO) - Alt + < - Para generar espacio en el txt donde se anotan las Llamadas
+;(ATAJO) - Ctrl + Alt + r - Recargar Script (para cambios o errores)
+;(ATAJO) - Ctrl + ShIFt + f - Buscar texto en logs de TeamViewer
+;(ATAJO) - Ctrl + Shift + a - Mostrar lista de atajos en pantalla
+;(ATAJO) - Alt + g - (Prueba) Envío de whatsapp seleccionando el número de teléfono, tomando el numero del incidente
+
+
+-~- CAMBIOS -~- 
+
+17/03/2024
+- Se solucionó el inconveniente con los id de TV con espacios.
+- Se modificó la plantilla de respuesta.
+- Se agregó la plantilla de tarde.
+- Se agregó el acceso al CMD.
+- Se modificaron los accesos para que se abran como administrador.
+- Se implementó una variable para la ruta al TeamViewer.
+- Se modificó el instructivo de instalación para que se genere un acceso directo y se copie en el directorio correcto.
+
+03/01/2025
+- Se agregó el uso de la clave copiada del configurador (tiene que estar en ejecucion).
+
+24/01/2025
+- Se cambió la forma de trabajo de los scripts de enviar las teclas a copiar y pegar para mejorar el rendimiento en atajos grandes.
+
+19/06/2025
+- Se agrega script para buscar en una carpeta de logs un determinado texto con Ctrl + Shift + f.
+- Se modifica la firma y formato de respuesta para utilizar una imagen personalizada que será leida en la ruta específicada y debe ser en formato png.
+- Se modifica la firma para que la respuesta sea automática según el horario (buen día, buenas tardes o buenas noches).
+- Se modifica el Alt + 7 para que genere la query para ajustar el importe de los lotes correspondientes por si desean ajustarlo.
+- Se agrega la combinación Alt + j para ver por comando de powershell la versión de CaldenOil en un servidor.
+- Se agrega la combinación Alt + r para abrir los adaptadores de red.
+
+28/06/2025
+- Se agrega script para enviar mensaje por whatsapp seleccionando un número y copiando de la ventana del navegador el numero de incidente (PRUEBA).
+- Se agrega script con listado de teclas (Ctrl + Shift + a).
+- Se mejora el script de busqueda que podía no copiar la ruta al seleccionarla en el TeamViewer.
+- Se mejora el script de | o ° para que no se muestre error si la disposición del teclado no tiene alguna de esas dos teclas.
