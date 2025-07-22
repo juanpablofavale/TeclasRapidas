@@ -1,8 +1,8 @@
-#**Teclas Rapidas**
+# **Teclas Rapidas**
 
-##**AutoHotKey**
+## **AutoHotKey**
 
-###**Ayudas varias para soporte técnico en windows**
+### **Ayudas varias para soporte técnico en windows**
 
 Archivo AHK con accesos directos asociados a diversas combinaciones de teclas para usar en windows como atajos para soporte técnico
 
