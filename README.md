@@ -10,8 +10,8 @@ Archivo AHK con accesos directos asociados a diversas combinaciones de teclas pa
 
 Creado por [**JPF**](https://juanpablofavale.github.io/Maqueta-Portfolio-2/)
 
-<li>
-    <ul>item 1</ul>
-    <ul>item 2</ul>
-    <ul>item 3</ul>
-</li>
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
